@@ -20,7 +20,7 @@ Uses an Arduino to turn on LEDs when action potential is detected by electrodes 
 
 ### contents ###
 
-* [Cricket][#cricket]
+* [Cricket](#cricket)
   * [void setup()](#setup)
   * [void loop()](#loop)
   * [int setSpikeThreshold()](#setspikethreshold)
