@@ -59,14 +59,14 @@ _How is spike detection done? Why did you choose to only get monopolar threshold
 
 In this experiment, spikes in the extracellular electrical field from an invertebrate (cricket) will be filtered and amplified using a SpikerBox ([BackyardBrains](https://backyardbrains.com/)), which will relay the processed signal to a microcontroller (Arduino UNO), where the signal will be used to control an LED output. 
 
-![Acquisition and Detection](C:\MyRepos\shared\Arduino-Cricket-Project\docs\detection.PNG "Acquisition and Detection")
+![Acquisition and Detection](/docs/detection.PNG "Acquisition and Detection")
 
 _@tej: Why do we need the SpikerBox? Why not go straight into the Arduino?_
 
 The output of the SpikerBox is split so that the filtered and amplified signal from the box is passed to an audio amplifier, where additional filtering may be applied. Correct filtering, grounding, and recording lead placement should lead the amplifier to produce a noise similar to rain falling.
 
-![Audio output](C:\MyRepos\shared\Arduino-Cricket-Project\docs\audio_out.PNG "Audio output")
+![Audio output](/docs/audio_out.PNG "Audio output")
 
 Finally, online thresholding using an empirically determined scaling of the potentiometer voltage will be used in conjunction with a fixed de-bounce period to identify the presence of spikes. Each time a spike is detected, the LED will flash for an artificially longer duration so that it is apparent to the observer, although in reality the spike may be 1.2 milliseconds or shorter. 
 
-![LED output](C:\MyRepos\shared\Arduino-Cricket-Project\docs\led_out.PNG "LED output")
+![LED output](/docs/led_out.PNG "LED output")
