@@ -1,10 +1,13 @@
 # Arduino-Cricket-Project
 Uses an Arduino to turn on LEDs when action potential is detected by electrodes in cricket's leg. For use in demonstration at the 2018 Brain Discovery Fair at University of Kansas Medical Center.
 
+![Goal of Demonstration](/docs/goal.PNG "Goal of Demo")
+
 ## Contents ##
 
 1. [Markdown ReadMe File](#markdown-practice)
 2. [Arduino Sketch](#arduino-sketch)
+3. [Demo Overview](#overview)
 
 
 
@@ -20,7 +23,7 @@ Uses an Arduino to turn on LEDs when action potential is detected by electrodes 
 
 ### contents ###
 
-* [Cricket](#cricket.ino)
+* [Cricket](#cricket)
   * [void setup()](#setup)
   * [void loop()](#loop)
   * [int setSpikeThreshold()](#setspikethreshold)
@@ -30,7 +33,7 @@ Uses an Arduino to turn on LEDs when action potential is detected by electrodes 
 
 ---
 
-### cricket.ino ###
+### cricket ###
 
 _Detailed description of Arduino sketch and significance of what it does, what is hoped to accomplish with the demo, what things someone might learn by doing this._
 
@@ -49,3 +52,21 @@ _Description of how the spike threshold is set. How would the potentiometer be u
 ### detectSpikes ###
 
 _How is spike detection done? Why did you choose to only get monopolar thresholds (what does that mean)? What do you expect would happen if the threshold is too low, or too high? Can you think of a way that you could automatically set the threshold levels without having to manually adjust it? How will you know if the threshold is too low or too high? How do you know if the things you are detecting with the LED light flashes are actually spikes?_
+
+
+
+## Overview ##
+
+In this experiment, spikes in the extracellular electrical field from an invertebrate (cricket) will be filtered and amplified using a SpikerBox ([BackyardBrains](https://backyardbrains.com/)), which will relay the processed signal to a microcontroller (Arduino UNO), where the signal will be used to control an LED output. 
+
+![Acquisition and Detection](C:\MyRepos\shared\Arduino-Cricket-Project\docs\detection.PNG "Acquisition and Detection")
+
+_@tej: Why do we need the SpikerBox? Why not go straight into the Arduino?_
+
+The output of the SpikerBox is split so that the filtered and amplified signal from the box is passed to an audio amplifier, where additional filtering may be applied. Correct filtering, grounding, and recording lead placement should lead the amplifier to produce a noise similar to rain falling.
+
+![Audio output](C:\MyRepos\shared\Arduino-Cricket-Project\docs\audio_out.PNG "Audio output")
+
+Finally, online thresholding using an empirically determined scaling of the potentiometer voltage will be used in conjunction with a fixed de-bounce period to identify the presence of spikes. Each time a spike is detected, the LED will flash for an artificially longer duration so that it is apparent to the observer, although in reality the spike may be 1.2 milliseconds or shorter. 
+
+![LED output](C:\MyRepos\shared\Arduino-Cricket-Project\docs\led_out.PNG "LED output")
